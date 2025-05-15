@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 40% 92%;
+    --foreground: 27 24% 35%;
+    
+    --muted: 27 5% 96%;
+    --muted-foreground: 27 5% 45%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 27 24% 35%;
+    
+    --card: 43 27% 88%;
+    --card-foreground: 27 24% 35%;
+    
+    --border: 27 20% 83%;
+    --input: 27 20% 83%;
+    
+    --primary: 206 77% 31%;
+    --primary-foreground: 211 100% 99%;
+    
+    --secondary: 27 27% 94%;
+    --secondary-foreground: 27 30% 10%;
+    
+    --accent: 27 27% 94%;
+    --accent-foreground: 27 30% 10%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+    
+    --ring: 27 20% 40%;
+    
+    --radius: 0.5rem;
+
+    /* Venda cultural colors */
+    --venda-blue: 200 60% 31%;
+    --venda-red: 4 70% 42%;
+    --venda-green: 96 56% 36%;
+    --venda-purple: 258 58% 33%;
+    --venda-yellow: 39 78% 52%;
+  }
+
+  .dark {
+    --background: 27 30% 10%;
+    --foreground: 43 40% 92%;
+    
+    --muted: 27 20% 20%;
+    --muted-foreground: 27 20% 80%;
+    
+    --popover: 27 30% 10%;
+    --popover-foreground: 43 40% 92%;
+    
+    --card: 27 30% 15%;
+    --card-foreground: 43 40% 92%;
+    
+    --border: 27 20% 30%;
+    --input: 27 20% 30%;
+    
+    --primary: 206 77% 31%;
+    --primary-foreground: 211 100% 99%;
+    
+    --secondary: 27 20% 20%;
+    --secondary-foreground: 43 40% 92%;
+    
+    --accent: 27 20% 20%;
+    --accent-foreground: 43 40% 92%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 43 40% 92%;
+    
+    --ring: 27 20% 80%;
+
+    /* Venda cultural colors remain the same in dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-raleway antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .venda-border {
+    background: repeating-linear-gradient(
+      45deg,
+      hsl(var(--venda-blue)),
+      hsl(var(--venda-blue)) 10px,
+      hsl(var(--venda-red)) 10px,
+      hsl(var(--venda-red)) 20px,
+      hsl(var(--venda-green)) 20px,
+      hsl(var(--venda-green)) 30px,
+      hsl(var(--venda-purple)) 30px,
+      hsl(var(--venda-purple)) 40px,
+      hsl(var(--venda-yellow)) 40px,
+      hsl(var(--venda-yellow)) 50px
+    );
+  }
+
+  .bible-verse {
+    @apply bg-secondary/70 border-l-4 border-primary p-4 md:p-6 rounded-lg shadow-md;
+  }
+
+  .countdown-item {
+    @apply relative px-4 flex flex-col items-center;
+  }
+
+  .countdown-item::after {
+    content: "";
+    @apply absolute right-[-3px] top-1/2 transform -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary/70;
+  }
+
+  .countdown-item:last-child::after {
+    @apply hidden;
+  }
+}
